@@ -1,4 +1,5 @@
 const routes = {
+  getUsersRoute: "/users",
   getRobotsRoute: "/robots",
 };
 
