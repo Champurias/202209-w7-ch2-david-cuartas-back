@@ -1,21 +1,19 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import handleNotFound from "./middleware/handleNotFound/handleNotFound.js";
 import routes from "./routers/routes.js";
 import robotRouter from "./routers/robotsRouter.js";
-import getUser from "./controllers/userControllers.js";
+import usersRouter from "./routers/usersRouter.js";
 
-const { getRobotsRoute } = routes;
+const { getRobotsRoute, getUsersRoute } = routes;
 const app = express();
 app.disable("x-powered-by");
 
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.json());
 
-app.get("/login", getUser);
+app.use(getUsersRoute, usersRouter);
 app.use(getRobotsRoute, robotRouter);
-
-app.use(handleNotFound);
 
 export default app;

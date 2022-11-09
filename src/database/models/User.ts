@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
@@ -8,6 +7,11 @@ const userSchema = new Schema({
     minLength: 4,
   },
   email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  username: {
     type: String,
     required: true,
     unique: true,
