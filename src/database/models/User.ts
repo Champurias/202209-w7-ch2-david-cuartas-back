@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
